@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Ashok Kumar
+  </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+  .buttonA {
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .buttonB {
+    border: none;
+    color: white;
+    padding: 8px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button1 {
+    background-color:rgb(77, 72, 72); 
+    color:white; 
+    border: 2px solid #4CAF50;
+  }
+  
+  .button1:hover {
+    background-color: #4CAF50;
+    color: black;
+  }
+  
+  .button2 {
+    background-color:rgb(77, 72, 72); 
+    color: whitesmoke; 
+    border: 2px solid #008CBA;
+  }
+  
+  .button2:hover {
+    background-color: #008CBA;
+    color: rgb(34, 7, 7);
+  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  
+  padding: 0 8px;
+}
+.column2 {
+  float:left;
+  width: 40%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 5px;
+  text-align: center;
+  background-color: teal;
+  color: white;
+}
+.center {
+  text-align: center;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="about-section">
+    <div class="row">
+        <div class="column">
+            <a class="buttonA button2" href="{% url 'blog-home' %}">Home</a>
+        </div>
+        
+            {% if user.is_authenticated %}
+            <div class="column"><a class="buttonA button2" href="{% url 'post-create' %}">New Post</a></div>
+        
+        <div class="column"><a class="buttonA button2" href="{% url 'profile' %}">Profile</a></div>
+          
+          <div class="column"><a class="buttonA button2" href="{% url 'logout' %}">Logout</a></div>
+          
+        {% else %}
+        <div class="column"><a class="buttonA button2" href="{% url 'login' %}">Login</a></div>
+          
+          <div class="column"><a class="buttonA button2" href="{% url 'register' %}">Register</a></div>
+          
+        {% endif %}
+        
+      </div>
+  <h1>About Me</h1>
+  </div>
+
+<h2 style="text-align:center">An WebApp Development Enthusiast</h2>
+<div class="row"  >
+    <div class="column2">
+        <div class="container">
+          <h2>Ashok Kumar Saini</h2>
+          <h3 class="title">Undergrad Student - Sophomore</h3>
+          <p>A wep and app development enthusiast and a second year student at Indian Institute of Technology, Kanpur.Pursuing my bachellor's degree in Computer Science and engineering</p>
+          
+          <p>
+            <a class="buttonB button1" href="https://github.com/Ashokkumar2sa/Django-website-heroku">Github Link</a>
+            <a class="buttonB button1" href="mailto:askumar9672929010@gmail.com">Contact Me</a>
+          </p>
+          
+          <h2>The Expert in anything was once a beginner</h2>
+        </div> 
+    </div>
+
+</div>
+
+</body>
+</html>
